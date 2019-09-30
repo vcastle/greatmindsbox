@@ -1,0 +1,14 @@
+<div class="container">
+    <!--lists of suggestions-->
+    <div class="ideas-array">
+        <div class="idea" *ngFor="let idea of ideas" ng-model="ideas">
+            <h2 style="color: #c0ffee;">{{ idea.title }}</h2>
+            <button class="glyphicon glyphicon-plus-sign btn" 
+                  (click)="upVote(idea)" id="upvoteBtn">
+            </button> 
+            Upvotes: {{idea.votes}}
+        </div>
+    </div>
+    <!-- form to submit your suggestion-->
+    <app-suggestion-form></app-suggestion-form>
+</div>

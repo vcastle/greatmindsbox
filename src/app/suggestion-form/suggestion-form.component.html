@@ -1,0 +1,31 @@
+<div>
+        <h2>Submit Your Great Idea</h2>
+
+        <form #suggestionForm="ngForm" (ngSubmit)="onSubmit(suggestionForm)" novalidate>
+          <div class="form-group">
+            <input type="text" 
+                   class="form-control" 
+                   id="title" 
+                   name="title"
+                   minlength="6"
+                   #title="ngModel"
+                   [(ngModel)]="model.title" 
+                   required #spy>
+                   <!-- {{spy.className}} -->
+            <!--error-->
+            <div *ngIf="!title.valid && title.touched" class="error">
+              Great Idea is required!
+            </div>
+            <div *ngIf="title.hasError('minlength')" class="error">
+              Idea must be at least 6 characters long.
+            </div>       
+          </div>
+
+          <button type="submit" class="btn btn-success" [disabled]="!suggestionForm.form.valid">Submit</button>
+
+          <div *ngIf="successMsg" [hidden]="title.touched" class="success">
+            Your Great Idea has been submitted!
+          </div>  
+        </form>
+    </div>
+
