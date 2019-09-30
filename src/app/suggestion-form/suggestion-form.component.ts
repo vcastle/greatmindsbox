@@ -27,7 +27,7 @@ successMsg = false;
     console.log('pushed');
   }
 
-// add an great idea fx
+  // add an great idea fx
   onSubmit(form: any) {
 
     // push idea object model to array
