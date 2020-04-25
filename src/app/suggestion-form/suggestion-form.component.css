@@ -1,23 +1,15 @@
-.ng-valid[required], .ng-valid.required  {
-    border-left: 5px solid #42A948; /* green */
-  }
+
+
+/* VALIDATION */
+.error {
+  color: crimson;
+  font-size: 16px;
+  padding: 10px 0px 0px 0px;
+}
+
+.success {
+  color: lightgreen;
+  font-size: 16px;
+  padding: 10px 0px 0px 0px;
+}
   
-  .ng-invalid:not(form)  {
-    border-left: 5px solid #a94442; /* red */
-  }
-
-  h2 {
-    color:white;
-  }
-
-  .error {
-    color: crimson;
-    font-size: 16px;
-    padding: 10px 0px 0px 0px;
-  }
-
-  .success {
-    color: lightgreen;
-    font-size: 16px;
-    padding: 10px 0px 0px 0px;
-  }

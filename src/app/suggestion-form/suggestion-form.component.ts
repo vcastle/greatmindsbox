@@ -1,57 +1,74 @@
 import { Component, OnInit } from '@angular/core';
-import { NewSuggestion } from '../models/newsuggestion';
-import { format } from 'path';
+import { ItemService } from '../services/item.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-suggestion-form',
   templateUrl: './suggestion-form.component.html',
   styleUrls: ['./suggestion-form.component.css']
 })
+
 export class SuggestionFormComponent implements OnInit {
-votes = 0;
-id = 0;
+newIdeas = []; // ideas array
+votes: number;
+showSubmit = false;
 successMsg = false;
 
-  constructor() { }
+  // create an object of the class inside the constructor
+constructor(public itemService: ItemService) { }
 
-  model = new NewSuggestion('Pizza on Retro days');
-  ideas = [];
+  // adds idea
+addIdea = idea => {
+    this.newIdeas.push(idea); // adds new idea to array
 
-  // fx that adds idea
-  addIdea() {
-    // push idea into ideas array
-    this.ideas.push({
-      title: this.model.title,
-      votes: 0
-    });
-    console.log('pushed');
   }
 
-  // add an great idea fx
-  onSubmit(form: any) {
+  // remove idea
+removeIdea = idea => {
+    // returns the index within the calling this.coffeeOrder object of the first occurrence
+    // of the specified value, starting the search at -1 if the value is not found.
+    // declaring the index
+    const index = this.newIdeas.indexOf(idea);
+    // changes the content of an array, adding new elements while removing old elements.
+    if (index > -1) { this.newIdeas.splice(index, 1); }
+  }
 
-    // push idea object model to array
-    this.addIdea();
-    console.log('new ideas array:', this.ideas);
 
-    this.successMsg = true;
 
-     // this new array equals array being shown on home
-     // ex: suggestions.posts = this.posts;
+  // add an great idea
+onSubmit() {
+    // map newIdeas array to the form value idea
+    // this.itemService.form.value.newIdea = this.newIdeas;
 
-     // clear input field after submit
-    this.model.title = '';
+    // set new idea votes to 0
+    this.itemService.form.controls.votes.setValue(0);
+
+    // assign data to form value
+    const data = this.itemService.form.value;
+
+    // create idea
+    this.itemService.createNewIdea(data);
+
+
+    // resets form
+    this.itemService.form.reset();
+
+    console.log('New idea has been submitted!');
 
     // reset form to pristine conditions
-    form.resetForm();
+    this.itemService.form.reset();
 
 }
 
 
-
-    // TODO: Remove this when we're done
-    // get diagnostic() { return JSON.stringify(this.model); }
-
-ngOnInit() {}
+ngOnInit() {
+      // validation
+      this.itemService.form = new FormGroup({
+        newIdea: new FormControl('', [Validators.required, Validators.minLength(2)]),
+        votes: new FormControl()
+      });
+}
 
 }
