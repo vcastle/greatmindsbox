@@ -1,14 +1,21 @@
-<div class="container">
+<div class="ideas-container">
     <!--lists of suggestions-->
     <div class="ideas-array">
-        <div class="idea" *ngFor="let idea of ideas" ng-model="ideas">
-            <h2 style="color: #c0ffee;">{{ idea.title }}</h2>
-            <button class="glyphicon glyphicon-plus-sign btn" 
-                  (click)="upVote(idea)" id="upvoteBtn">
+        <div class="idea" *ngFor="let idea of newIdeas; let i = index" >
+            <h2 style="color: #c0ffee;"> {{ idea.payload.doc.data().newIdea }} </h2>
+            <!--upvote btn-->
+            <button mat-flat-button class="btn"  
+                  (click)="upVote(i)" id="upvoteBtn">
             </button> 
-            Upvotes: {{idea.votes}}
+            <!-- just changing the html -->
+            <!-- Votes:<span [innerText]="votes" id="upvotes">{{votes}}</span> -->
+
+            <!-- pulling votes from firestore -->
+            Votes:<span id="upvotes">{{ idea.payload.doc.data().votes }}</span>
         </div>
     </div>
     <!-- form to submit your suggestion-->
     <app-suggestion-form></app-suggestion-form>
 </div>
+
+

@@ -1,50 +1,68 @@
 import { Component, OnInit } from '@angular/core';
-import { Idea } from '../models/idea';
-import { NewSuggestion } from '../models/newsuggestion';
+
+import { Idea } from '../shared/idea.model';
+import { config } from '../shared/idea.config';
+
+import { ItemService } from '../services/item.service';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit {
-// make this.ideas = the posts in suggestionsService
-// this.ideas = suggestions.ideas
+  newIdeas = [];
+  public votes: any = this.itemService.form.value.votes;
+
+  constructor(public db: AngularFirestore, public itemService: ItemService) { }
 
 
-// add a filtering/sorting service and inject into the component to filter by number of votes
-
-// this could be moved into a service
-// calls to the db should be made in service
-ideas = [
-    {
-      id: 1,
-      title: 'Pizza everyday',
-      votes: 40
-     },
-     {
-       title: 'Half day Fridays',
-       votes: 10
-     },
-     {
-       title: 'Walk at the park on Wednesdays',
-       votes: 8
-     }
- ];
-
-string = JSON.stringify(this.ideas);
+  ngOnInit() {
+    this.getIdeas();
+  }
 
 
-  // model = new Idea (1, 'Half days on Fridays', 15);
+
+  // TODO: add a filtering/sorting service and inject into the component to filter by number of votes
 
 
-// adds 1 vote to a specific idea
-upVote = (idea: any) => {
-  idea.votes += 1;
-}
+  // adding votes to an idea
+  upVote = (id: number) => {
+
+    // use this to access the votes for specific id passed in this fx in firestore!!! //
+    // this.newIdeas[id].payload.doc.data().votes
+
+    console.log('id: ', id);
+    console.log('obj of id being passed: ', this.newIdeas[id].payload.doc.data());
+    console.log('initial vote #: ', this.newIdeas[id].payload.doc.data().votes);
+
+    console.log('the idea: ', this.newIdeas[id].payload.doc.data().newIdea);
+
+    const idea = this.newIdeas[id].payload.doc.data().newIdea;
+    // add one count to votes
+    console.log('%c votes in firestore: ', 'color: orange; font-weight: bold;', this.newIdeas[id].payload.doc.data().votes);
+    let plusOne = this.newIdeas[id].payload.doc.data().votes;
+    plusOne++;
+
+    // update vote count in fb db
+    this.updateVote(id, idea, plusOne);
+
+    console.log('%c add +1 vote: ', 'color: green; font-weight: bold;', plusOne);
+    // return plusOne;
+  }
 
 
-ngOnInit() {}
+  // update vote in document
+  updateVote = (id, idea, data) => this.itemService.updateVote(id, idea, data);
 
+  // get ideas collection from firestore db
+  getIdeas = () =>
+    this.itemService
+      .getIdeas()
+      .subscribe(res => (this.newIdeas = res))
 
+  // We’re going to pass in the instance of the idea data in the loop when the ‘delete_forever’ icon gets clicked
+  deleteIdea = data => this.itemService.deleteIdea(data);
 }
