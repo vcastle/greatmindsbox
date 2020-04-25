@@ -1,3 +1,8 @@
+.ideas-container {
+	padding: auto 1rem;
+	margin: auto 10rem;
+}
+
 .ideas-array {
 	border-bottom: solid 2px #fafafa;
 }

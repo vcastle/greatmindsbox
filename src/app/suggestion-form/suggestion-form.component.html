@@ -1,15 +1,21 @@
-<div>
+<div class="suggestions__container">
   <h2>Submit Your Great Idea</h2>
 
   <!--Reactive form-->
   <form [formGroup]="this.itemService.form" novalidate>
-    <div class="form-group">
-      <input
-        placeholder="Your great idea"
-        type="text"
-        class="form-control"
-        formControlName="newIdea"
-      >
+    <div class="form-group form-container">
+      <mat-form-field appearance="outline" class="form-full-width">
+        <mat-label>Your Great Idea</mat-label>
+        <input
+          matInput
+          #message
+          formControlName="newIdea"
+          maxlength="256"
+          placeholder="Ex. My great idea is..."
+        />
+        <mat-hint align="start"><strong>Required</strong> </mat-hint>
+        <mat-hint align="end">{{ message.value.length }} / 256</mat-hint>
+      </mat-form-field>
 
       <!--error-->
       <div
@@ -32,16 +38,12 @@
       </div>
 
       <div style="visibility: hidden;">
-        <input
-        type="number"
-        class="form-control"
-        formControlName="votes"
-      >
+        <input type="number" class="form-control" formControlName="votes" />
       </div>
-
     </div>
     <!--submit idea to collection-->
     <button
+      mat-raised-button
       type="submit"
       class="btn btn-success"
       (click)="onSubmit()"

@@ -1,10 +1,10 @@
-<div class="container">
+<div class="ideas-container">
     <!--lists of suggestions-->
     <div class="ideas-array">
         <div class="idea" *ngFor="let idea of newIdeas; let i = index" >
             <h2 style="color: #c0ffee;"> {{ idea.payload.doc.data().newIdea }} </h2>
             <!--upvote btn-->
-            <button class="glyphicon glyphicon-plus-sign btn" 
+            <button mat-flat-button class="btn"  
                   (click)="upVote(i)" id="upvoteBtn">
             </button> 
             <!-- just changing the html -->
@@ -17,3 +17,5 @@
     <!-- form to submit your suggestion-->
     <app-suggestion-form></app-suggestion-form>
 </div>
+
+
