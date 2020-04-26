@@ -5,14 +5,13 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: 'AIzaSyCVyLyOv2SgcdhsDEtzHp8yhRAkAaMhLZY',
-    authDomain: 'greatmindsbox.firebaseapp.com',
-    databaseURL: 'https://greatmindsbox.firebaseio.com',
-    projectId: 'greatmindsbox',
-    storageBucket: 'greatmindsbox.appspot.com',
-    messagingSenderId: '334740889210',
-    appId: '1:334740889210:web:81544af60890461de1a5c3',
-    measurementId: 'G-JE23WYXLF1'
+    apiKey: 'AIzaSyBRO-XXHN_3DzmStQ5r-RY-44bklS8Vsjo',
+    authDomain: 'greatminds-box.firebaseapp.com',
+    databaseURL: 'https://greatminds-box.firebaseio.com',
+    projectId: 'greatminds-box',
+    storageBucket: 'greatminds-box.appspot.com',
+    messagingSenderId: '211008247887',
+    appId: '1:211008247887:web:9a504b2de454eacb'
   }
 };
 
