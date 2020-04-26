@@ -1,5 +1,9 @@
 {
   "database": {
-    "rules": "y"
+    "rules": "firebase.database.json"
+  },
+  "hosting": {
+    "public": "dist/greatMindsBox",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
   }
 }

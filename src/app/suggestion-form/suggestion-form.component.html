@@ -1,5 +1,5 @@
 <div class="suggestions__container">
-  <h2>Submit Your Great Idea</h2>
+  <h2>Welcome!</h2>
 
   <!--Reactive form-->
   <form [formGroup]="this.itemService.form" novalidate>
@@ -13,9 +13,20 @@
           maxlength="256"
           placeholder="Ex. My great idea is..."
         />
-        <mat-hint align="start"><strong>Required</strong> </mat-hint>
+        <mat-hint align="start"><strong>*Required</strong> </mat-hint>
         <mat-hint align="end">{{ message.value.length }} / 256</mat-hint>
       </mat-form-field>
+
+      <!--submit idea to collection-->
+      <button
+        mat-flat-button
+        type="submit"
+        class="btn-success"
+        (click)="onSubmit()"
+        [disabled]="this.itemService.form.invalid"
+      >
+        Submit
+      </button>
 
       <!--error-->
       <div
@@ -41,16 +52,6 @@
         <input type="number" class="form-control" formControlName="votes" />
       </div>
     </div>
-    <!--submit idea to collection-->
-    <button
-      mat-raised-button
-      type="submit"
-      class="btn btn-success"
-      (click)="onSubmit()"
-      [disabled]="this.itemService.form.invalid"
-    >
-      Submit
-    </button>
 
     <!-- <div *ngIf="successMsg" class="success">
             Your Great Idea has been submitted!

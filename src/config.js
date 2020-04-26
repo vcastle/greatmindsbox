@@ -1,12 +1,12 @@
 var config = {
     firebase: {
-        apiKey: 'AIzaSyBRO-XXHN_3DzmStQ5r-RY-44bklS8Vsjo',
-        authDomain: 'greatminds-box.firebaseapp.com',
-        databaseURL: 'https://greatminds-box.firebaseio.com',
-        projectId: 'greatminds-box',
-        storageBucket: 'greatminds-box.appspot.com',
-        messagingSenderId: '211008247887',
-        appId: '1:211008247887:web:9a504b2de454eacb'
+        apiKey: "AIzaSyDjIForLg5WLpDvrsQrVDGWJ_i86CKVFlc",
+        authDomain: "greatminds-thinkalike.firebaseapp.com",
+        databaseURL: "https://greatminds-thinkalike.firebaseio.com",
+        projectId: "greatminds-thinkalike",
+        storageBucket: "greatminds-thinkalike.appspot.com",
+        messagingSenderId: "541626897463",
+        appId: "1:541626897463:web:526df8edd073ee8504dbb2"
       }
   };
 

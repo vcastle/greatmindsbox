@@ -1,4 +1,7 @@
 <div class="ideas-container">
+    <!-- form to submit your suggestion-->
+    <app-suggestion-form></app-suggestion-form>
+    
   <!--lists of suggestions-->
   <div class="ideas-array" *ngFor="let idea of newIdeas; let i = index">
     <div class="ideas-text-container">
@@ -25,6 +28,4 @@
       </div>
     </div>
   </div>
-  <!-- form to submit your suggestion-->
-  <app-suggestion-form></app-suggestion-form>
 </div>
