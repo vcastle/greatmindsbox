@@ -15,7 +15,6 @@ export class SuggestionFormComponent implements OnInit {
   newIdeas = []; // ideas array
   votes: number;
   showSubmit = false;
-  successMsg = false;
 
   // create an object of the class inside the constructor
   constructor(public db: AngularFirestore, public itemService: ItemService) {}

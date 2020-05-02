@@ -1,10 +1,18 @@
-.suggestions__container {
+.suggestions {
   margin: 5rem;
   text-align: center;
 }
 
+.suggestions__title {
+ font-weight: 600;
+}
 
-.form-container {
+.suggestions__sub-title {
+  font-variant: small-caps;
+  color: rgb(49, 12, 119);
+}
+
+.form {
   display: block;
 }
 
@@ -25,10 +33,3 @@
   font-size: 16px;
   padding: 10px 0px 0px 0px;
 }
-
-.success {
-  color: lightgreen;
-  font-size: 16px;
-  padding: 10px 0px 0px 0px;
-}
-  
