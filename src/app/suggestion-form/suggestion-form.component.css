@@ -1,8 +1,18 @@
-.suggestions__container {
+
+
+.suggestions {
   margin: 5rem;
   text-align: center;
 }
 
+.suggestions__title {
+ font-weight: 600;
+}
+
+.suggestions__sub-title {
+  font-variant: small-caps;
+  color: rgb(49, 12, 119);
+}
 
 .form-container {
   display: block;

@@ -1,5 +1,6 @@
-<div class="suggestions__container">
-  <h2>Welcome!</h2>
+<div class="suggestions">
+  <h1 class="suggestions__title">Welcome to Our Team Suggestion Form!</h1>
+  <h3 class="suggestions__sub-title">All great ideas are anonymous</h3>
 
   <!--Reactive form-->
   <form [formGroup]="this.itemService.form" novalidate>
@@ -53,8 +54,8 @@
       </div>
     </div>
 
-    <!-- <div *ngIf="successMsg" class="success">
+    <div *ngIf="successMsg" class="success">
             Your Great Idea has been submitted!
-          </div>   -->
+          </div>  
   </form>
 </div>
