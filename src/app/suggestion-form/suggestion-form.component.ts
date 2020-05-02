@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { ItemService } from "../services/item.service";
+import { AngularFirestore } from "@angular/fire/firestore";
+
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { firestore } from "firebase";
 
 @Component({
   selector: "app-suggestion-form",
@@ -8,13 +11,25 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
   styleUrls: ["./suggestion-form.component.css"],
 })
 export class SuggestionFormComponent implements OnInit {
+  id: number;
   newIdeas = []; // ideas array
   votes: number;
   showSubmit = false;
   successMsg = false;
 
   // create an object of the class inside the constructor
-  constructor(public itemService: ItemService) {}
+  constructor(public db: AngularFirestore, public itemService: ItemService) {}
+
+  ngOnInit() {
+    // validation
+    this.itemService.form = new FormGroup({
+      newIdea: new FormControl("", [
+        Validators.required,
+        Validators.minLength(2),
+      ]),
+      votes: new FormControl(),
+    });
+  }
 
   // adds idea
   addIdea = (idea) => {
@@ -33,16 +48,15 @@ export class SuggestionFormComponent implements OnInit {
     }
   };
 
-  // add an great idea
+  // add a great idea
   onSubmit() {
-    // map newIdeas array to the form value idea
-    // this.itemService.form.value.newIdea = this.newIdeas;
-
-    // set new idea votes to 0
-    this.itemService.form.controls.votes.setValue(0);
-
-    // assign data to form value
-    const data = this.itemService.form.value;
+    // assign data
+    const data = {
+      created: firestore.Timestamp.now().toDate(),
+      id: this.db.createId(),
+      newIdea: this.itemService.form.controls["newIdea"].value,
+      votes: 0,
+    };
 
     // create idea
     this.itemService.createNewIdea(data);
@@ -54,18 +68,5 @@ export class SuggestionFormComponent implements OnInit {
 
     // reset form to pristine conditions
     this.itemService.form.reset();
-
-    this.successMsg = true;
-  }
-
-  ngOnInit() {
-    // validation
-    this.itemService.form = new FormGroup({
-      newIdea: new FormControl("", [
-        Validators.required,
-        Validators.minLength(2),
-      ]),
-      votes: new FormControl(),
-    });
   }
 }
