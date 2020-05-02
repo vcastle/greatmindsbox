@@ -1,11 +1,31 @@
 <div class="main__container">
-      <!-- Main Content -->
-      <div class="main__toolbar">
-        <span class="main__logo"> Great Minds<sub class="main__sub"> ©</sub></span>
-        <!-- <img src="assets/img/logo.png" width="150px"/><sub style="color:white;font-size:14px;"> ©</sub> -->
-      </div>
-      <main>
-          <!-- <router-outlet></router-outlet> -->
-          <app-home></app-home>
-      </main>
+  <!-- Main Content -->
+  <div class="main__toolbar">
+    <span class="main__logo"> Great Minds<sub class="main__sub"> ©</sub></span>
+    <!-- <img src="assets/img/logo.png" width="150px"/><sub style="color:white;font-size:14px;"> ©</sub> -->
   </div>
+  <main>
+    <!-- <router-outlet></router-outlet> -->
+    <app-home></app-home>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer__text">
+    <div class="container">
+      great minds - &copy; 2020 - created by
+      <a href="http://www.valcastillo.com" class="footer__link--site"
+        >val castillo
+        <img
+          src="/assets/img/vcastle_white_75px.png"
+          alt="val logo"
+          height="15"
+          width="15"
+      /></a>
+
+      -
+      <a href="https://github.com/vcastle" class="footer__link--github"
+        ><i class="fab fa-github"></i
+      ></a>
+    </div>
+  </footer>
+</div>

@@ -32,7 +32,7 @@ export class ItemService {
       this.db
         .collection("newIdeas")
         .add(data)
-        .then((err) => reject(console.log(err)));
+        .then((err) => reject(err));
     });
   }
 
