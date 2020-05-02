@@ -76,3 +76,32 @@ html {
   color: #dedcdc;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+
+/**/
+.footer {
+  background-color: #4e54c8;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  /* Set the fixed height of the footer here */
+  height: 35px;
+  line-height: 35px; /* Vertically center the text there */
+}
+
+.footer__text {
+  font-variant: small-caps;
+  font-weight: 600;
+  color: whitesmoke;
+  text-align: center;
+}
+
+.footer__link--site {
+  text-decoration: none;
+  color: rgb(4, 197, 197);
+}
+
+.footer__link--github {
+  text-decoration: none;
+  color: orange;
+}
