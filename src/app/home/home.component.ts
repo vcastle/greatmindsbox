@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit {
 
   // adding votes to an idea
   upVote = (id: string) => {
-
     // grab the id and subscribe to data to get the # of votes
     this.ideaCollectionRef
       .doc(id)
@@ -35,7 +34,7 @@ export class HomeComponent implements OnInit {
         // add one count to votes
         let plusOne = this.votes;
         plusOne++;
-        
+
         console.log(
           "%c add +1 vote: ",
           "color: green; font-weight: bold;",

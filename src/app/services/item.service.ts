@@ -32,20 +32,16 @@ export class ItemService {
       this.db
         .collection("newIdeas")
         .add(data)
-        .then(
-          (documentRef) => {
-            var documentId = documentRef.id;
-            console.log("create result id!!: ", documentId);
-          },
-          (err) => reject(console.log(err))
-        );
+        .then((err) => reject(console.log(err)));
     });
   }
 
   // Display ideas data from firestore db newIdeas collection
   // to use it, call it from home.c.ts
   getIdeas() {
-    return this.db.collection("newIdeas").snapshotChanges();
+    return this.db
+      .collection("newIdeas", (ref) => ref.orderBy("votes", "desc"))
+      .snapshotChanges();
   }
 
   // This function will connect and call your Firestore db based on selected collection and document id
