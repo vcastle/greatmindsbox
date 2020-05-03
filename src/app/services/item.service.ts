@@ -27,13 +27,16 @@ export class ItemService {
 
   // Need to specify the collection name and what data you want to push to the database
   // In our case, it’s newIdeas
-  createNewIdea(data) {
-    return new Promise<any>((res, reject) => {
-      this.db
+  async createNewIdea(data) {
+    try {
+      return this.db
         .collection("newIdeas")
-        .add(data)
-        .then((err) => reject(err));
-    });
+        .add(data);
+    }
+    catch (err) {
+      return console.error(err);
+    }
+    
   }
 
   // Display ideas data from firestore db newIdeas collection
