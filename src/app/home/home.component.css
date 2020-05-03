@@ -1,6 +1,6 @@
 .ideas-container {
   padding: auto 1rem;
-  margin: auto 10rem;
+  margin: auto 8rem;
 }
 
 .ideas-array {
@@ -44,4 +44,11 @@
   cursor: pointer;
   background: #4e54c8;
   color: #ffffff;
+}
+
+/*media queries*/
+@media (max-width: 375px) {
+  .ideas-container {
+    margin: auto 2rem;
+  }
 }

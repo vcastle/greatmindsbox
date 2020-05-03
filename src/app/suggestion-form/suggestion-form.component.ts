@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, HostBinding } from "@angular/core";
 import { ItemService } from "../services/item.service";
 import { AngularFirestore } from "@angular/fire/firestore";
 
@@ -11,6 +11,8 @@ import { firestore } from "firebase";
   styleUrls: ["./suggestion-form.component.css"],
 })
 export class SuggestionFormComponent implements OnInit {
+  @HostBinding('class') class = 'suggestions';
+  
   id: number;
   newIdeas = []; // ideas array
   votes: number;

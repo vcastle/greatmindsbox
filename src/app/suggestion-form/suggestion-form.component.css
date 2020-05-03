@@ -1,10 +1,15 @@
-.suggestions {
-  margin: 5rem;
+:host.suggestions {
   text-align: center;
 }
 
+.suggestions {
+  margin: 5rem auto 0 auto;
+}
+
 .suggestions__title {
- font-weight: 600;
+ font-weight: 500;
+  font-size: 10rem;
+
 }
 
 .suggestions__sub-title {
@@ -29,7 +34,18 @@
 
 /* VALIDATION */
 .error {
-  color: crimson;
+  color: crimson; 
   font-size: 16px;
   padding: 10px 0px 0px 0px;
+}
+
+@media (max-width: 375px) {
+  .suggestions__title {
+    font-size: 2rem;
+
+  }
+
+  .btn-sm {
+    width: 100%;
+  }
 }

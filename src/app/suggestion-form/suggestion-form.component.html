@@ -1,6 +1,6 @@
 <div class="suggestions">
-  <h1 class="suggestions__title">Welcome to Our Team's Suggestion Box!</h1>
-  <h3 class="suggestions__sub-title">All great ideas are anonymous</h3>
+  <div class="suggestions__title">Please Submit Your Great Idea!</div>
+  <h3 class="suggestions__sub-title">All ideas are anonymous</h3>
 
   <!--Reactive form-->
   <form [formGroup]="this.itemService.form" novalidate>
@@ -22,7 +22,7 @@
       <button
         mat-flat-button
         type="submit"
-        class="btn-success"
+        class="btn-sm btn-success"
         (click)="onSubmit()"
         [disabled]="this.itemService.form.invalid"
       >
