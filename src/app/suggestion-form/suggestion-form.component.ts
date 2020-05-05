@@ -8,7 +8,7 @@ import { firestore } from "firebase";
 @Component({
   selector: "app-suggestion-form",
   templateUrl: "./suggestion-form.component.html",
-  styleUrls: ["./suggestion-form.component.css"],
+  styleUrls: ["./suggestion-form.component.scss"],
 })
 export class SuggestionFormComponent implements OnInit {
   @HostBinding('class') class = 'suggestions';

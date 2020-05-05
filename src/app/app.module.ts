@@ -20,9 +20,10 @@ import { environment } from "src/environments/environment";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, SuggestionFormComponent],
+  declarations: [AppComponent, HomeComponent, SuggestionFormComponent, FooterComponent],
   imports: [
     HttpClientModule,
     BrowserModule,

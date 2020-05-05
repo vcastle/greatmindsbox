@@ -1,0 +1,35 @@
+.footer {
+  background-color: #4e54c8;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  white-space: nowrap;
+  /* Set the fixed height of the footer here */
+  height: 40px;
+  line-height: 40px; /* Vertically center the text there */
+  z-index: 1;
+  -webkit-box-shadow: 0px -8px 17px -1px rgba(189, 189, 189, 0.6);
+  -moz-box-shadow: 0px -8px 17px -1px rgba(189, 189, 189, 0.6);
+  box-shadow: 0px -8px 17px -1px rgba(189, 189, 189, 0.6);
+
+  &__text {
+    font-variant: small-caps;
+    font-weight: 600;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  &__link--site {
+    text-decoration: none;
+    color: rgb(4, 197, 197);
+  }
+
+}
+
+@media (max-width: 768px) {
+  .footer {
+    position: inherit;
+  }
+}

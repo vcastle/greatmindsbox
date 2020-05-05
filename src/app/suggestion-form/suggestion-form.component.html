@@ -5,7 +5,7 @@
   <!--Reactive form-->
   <form [formGroup]="this.itemService.form" novalidate>
     <div class="form-group form">
-      <mat-form-field appearance="outline" class="form-full-width">
+      <mat-form-field appearance="outline" class="form__input--full">
         <mat-label>Your Great Idea</mat-label>
         <input
           matInput
@@ -22,7 +22,7 @@
       <button
         mat-flat-button
         type="submit"
-        class="btn-sm btn-success"
+        class="btn-sm btn__color--success "
         (click)="onSubmit()"
         [disabled]="this.itemService.form.invalid"
       >
@@ -55,3 +55,4 @@
     </div>
   </form>
 </div>
+
