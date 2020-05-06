@@ -14,4 +14,4 @@ Teams can use this for anonymous feedback or for gathering ideas on their next p
 
 # Examples
 
-![Image of Landing Page](/greatmindsScreen.png)
+![Image of Landing Page](/src/assets/img/greatmindsScreen.png)
