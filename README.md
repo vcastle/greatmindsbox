@@ -11,3 +11,7 @@ Teams can use this for anonymous feedback or for gathering ideas on their next p
 
 - [Angular]
 - [Cloud Firestore]
+
+# Examples
+
+![Image of Landing Page](/greatmindsScreen.png)
