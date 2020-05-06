@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
 
 import { Idea } from "../shared/idea.model";
 
@@ -15,13 +14,6 @@ import {
 export class ItemService {
   idea: AngularFirestoreCollection<Idea>;
   ideaDoc: AngularFirestoreDocument<Idea>;
-
-  // use these values to store in Firebase
-  form = new FormGroup({
-    id: new FormControl(""),
-    newIdea: new FormControl(""),
-    votes: new FormControl(0),
-  });
 
   constructor(public db: AngularFirestore) {}
 

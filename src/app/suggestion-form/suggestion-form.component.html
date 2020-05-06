@@ -3,7 +3,7 @@
   <h3 class="suggestions__sub-title">all ideas are anonymous</h3>
 
   <!--Reactive form-->
-  <form [formGroup]="this.itemService.form" novalidate>
+  <form [formGroup]="form" novalidate>
     <div class="form-group form">
       <mat-form-field appearance="outline" class="form__input--full">
         <mat-label>Your Great Idea</mat-label>
@@ -22,9 +22,9 @@
       <button
         mat-flat-button
         type="submit"
-        class="btn-sm btn__color--success "
+        class="btn-sm btn__color--success"
         (click)="onSubmit()"
-        [disabled]="this.itemService.form.invalid"
+        [disabled]="this.form.invalid"
       >
         Submit
       </button>
@@ -33,8 +33,9 @@
       <div
         class="error"
         *ngIf="
-          this.itemService.form.get('newIdea').hasError('required') &&
-          this.itemService.form.get('newIdea').touched
+          this.form.get('newIdea').hasError('required') &&
+          this.form.get('newIdea').touched &&
+          this.form.get('newIdea').invalid
         "
       >
         Great Idea is required!
@@ -42,17 +43,12 @@
       <div
         class="error"
         *ngIf="
-          this.itemService.form.get('newIdea').hasError('minlength') &&
-          this.itemService.form.get('newIdea').touched
+          this.form.get('newIdea').hasError('minlength') &&
+          this.form.get('newIdea').touched
         "
       >
         Minimum of 2 characters
       </div>
-
-      <div style="visibility: hidden;">
-        <input type="number" class="form-control" formControlName="votes" />
-      </div>
     </div>
   </form>
 </div>
-
