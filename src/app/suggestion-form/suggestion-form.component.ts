@@ -11,26 +11,26 @@ import { firestore } from "firebase";
   styleUrls: ["./suggestion-form.component.scss"],
 })
 export class SuggestionFormComponent implements OnInit {
-  @HostBinding('class') class = 'suggestions';
-  
+  @HostBinding("class") class = "suggestions";
+
   id: number;
   newIdeas = []; // ideas array
   votes: number;
   showSubmit = false;
 
+  // use these values to store in Firebase
+  form = new FormGroup({
+    newIdea: new FormControl("", [
+      Validators.required,
+      Validators.minLength(2),
+    ]),
+    votes: new FormControl(),
+  });
+
   // create an object of the class inside the constructor
   constructor(public db: AngularFirestore, public itemService: ItemService) {}
 
-  ngOnInit() {
-    // validation
-    this.itemService.form = new FormGroup({
-      newIdea: new FormControl("", [
-        Validators.required,
-        Validators.minLength(2),
-      ]),
-      votes: new FormControl(),
-    });
-  }
+  ngOnInit() {}
 
   // adds idea
   addIdea = (idea) => {
@@ -55,19 +55,19 @@ export class SuggestionFormComponent implements OnInit {
     const data = {
       created: firestore.Timestamp.now().toDate(),
       id: this.db.createId(),
-      newIdea: this.itemService.form.controls["newIdea"].value,
+      newIdea: this.form.controls["newIdea"].value,
       votes: 0,
     };
 
     // create idea
     this.itemService.createNewIdea(data);
 
-    // resets form
-    this.itemService.form.reset();
+    console.log(
+      "%c New idea has been submitted!",
+      "color: green; font-weight: bold;"
+    );
 
-    console.log("New idea has been submitted!");
-
-    // reset form to pristine conditions
-    this.itemService.form.reset();
+    // reset form
+    this.form.get("newIdea").reset();
   }
 }

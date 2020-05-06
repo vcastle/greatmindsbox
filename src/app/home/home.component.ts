@@ -10,7 +10,7 @@ import { AngularFirestore } from "@angular/fire/firestore";
 })
 export class HomeComponent implements OnInit {
   newIdeas = [];
-  public votes: any = this.itemService.form.value.votes;
+  public votes: any;
 
   constructor(private db: AngularFirestore, private itemService: ItemService) {}
   ideaCollectionRef = this.db.collection("newIdeas");
